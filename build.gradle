@@ -39,7 +39,8 @@ dependencies {
 
     implementation "io.micronaut.configuration:micronaut-hibernate-jpa"
     implementation "io.micronaut.configuration:micronaut-jdbc-hikari"
-    runtime "com.h2database:h
+    runtime "com.h2database:h2"
+}
 
 test.classpath += configurations.developmentOnly
 
