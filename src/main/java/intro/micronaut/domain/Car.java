@@ -25,16 +25,20 @@ public class Car {
     @Column(name = "color")
     private String color;
 
+    @Column(name = "processed_queue")
+    private Boolean processedQueue;
+
     public Car() {
     }
 
-    public Car(Long id, String name, String engine, String city, String licensePlate, String color) {
+    public Car(Long id, String name, String engine, String city, String licensePlate, String color, Boolean processedQueue) {
         this.id = id;
         this.name = name;
         this.engine = engine;
         this.city = city;
         this.licensePlate = licensePlate;
         this.color = color;
+        this.processedQueue = processedQueue;
     }
 
     public Long getId() {
@@ -85,5 +89,25 @@ public class Car {
         this.color = color;
     }
 
+    public Boolean getProcessedQueue() {
+        return processedQueue;
+    }
+
+    public void setProcessedQueue(Boolean processedQueue) {
+        this.processedQueue = processedQueue;
+    }
+
+    @Override
+    public String toString() {
+        return "Car{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", engine='" + engine + '\'' +
+                ", city='" + city + '\'' +
+                ", licensePlate='" + licensePlate + '\'' +
+                ", color='" + color + '\'' +
+                ", processedQueue=" + processedQueue +
+                '}';
+    }
 
 }

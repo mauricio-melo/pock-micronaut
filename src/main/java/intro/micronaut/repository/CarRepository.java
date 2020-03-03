@@ -16,4 +16,6 @@ public interface CarRepository {
     void deleteById(@NotNull final Long id);
 
     List<Car> findAll();
+
+    void update(@NotNull Long id, @NotBlank Boolean processedQueue);
 }

@@ -4,6 +4,7 @@ import intro.micronaut.configuration.AddressConfig;
 import intro.micronaut.domain.Car;
 import intro.micronaut.primarybeans.ColorPicker;
 import intro.micronaut.qualifier.Engine;
+import intro.micronaut.queue.MessageSender;
 import intro.micronaut.repository.CarRepository;
 import io.micronaut.context.annotation.Value;
 
@@ -25,22 +26,30 @@ public class CarService {
 
     private final CarRepository carRepository;
 
+    private final MessageSender messageSender;
+
     public CarService(@Named("v8") Engine engine, AddressConfig addressConfig,
-                      ColorPicker colorPicker, CarRepository carRepository) {
+                      ColorPicker colorPicker, CarRepository carRepository, MessageSender messageSender) {
         this.engine = engine;
         this.addressConfig = addressConfig;
         this.colorPicker = colorPicker;
         this.carRepository = carRepository;
+        this.messageSender = messageSender;
     }
 
     public Car save(final String name) {
-        Car car = new Car();
+        final Car car = new Car();
         car.setName(name);
         car.setEngine(engine.getEngine());
         car.setCity(addressConfig.getCity());
         car.setLicensePlate(licensePlate);
         car.setColor(colorPicker.color());
-        return carRepository.save(car);
+        car.setProcessedQueue(Boolean.FALSE);
+
+        final Car carSaved = carRepository.save(car);
+        messageSender.send(carSaved);
+
+        return carSaved;
     }
 
     public Car findById(final Long id) { ;
@@ -49,5 +58,9 @@ public class CarService {
 
     public List<Car> findAll() {
         return carRepository.findAll();
+    }
+
+    public void processingCar(final Car car) {
+        carRepository.update(car.getId(), Boolean.TRUE);
     }
 }

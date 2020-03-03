@@ -40,6 +40,8 @@ dependencies {
     implementation "io.micronaut.configuration:micronaut-hibernate-jpa"
     implementation "io.micronaut.configuration:micronaut-jdbc-hikari"
     runtime "com.h2database:h2"
+
+    compile 'io.micronaut.configuration:micronaut-rabbitmq'
 }
 
 test.classpath += configurations.developmentOnly

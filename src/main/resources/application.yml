@@ -24,7 +24,9 @@ jpa:
           auto: update
         show_sql: true
 
-redis:
-  uri: redis://localhost
-  ssl: true
-  timeout: 30s
+
+rabbitmq:
+  host: localhost
+  port: 5672
+  username: teste
+  password: teste

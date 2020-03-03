@@ -46,4 +46,13 @@ public class CarRepositoryImpl implements CarRepository {
     public List<Car> findAll() {
         return entityManager.createQuery("SELECT c FROM Car c", Car.class).getResultList();
     }
+
+    @Override
+    @Transactional
+    public void update(@NotNull Long id, @NotBlank Boolean processedQueue) {
+        entityManager.createQuery("UPDATE Car c SET processedQueue = :processedQueue where id = :id")
+                .setParameter("processedQueue", processedQueue)
+                .setParameter("id", id)
+                .executeUpdate();
+    }
 }
