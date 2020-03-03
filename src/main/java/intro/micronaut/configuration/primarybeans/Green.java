@@ -1,4 +1,4 @@
-package intro.micronaut.primarybeans;
+package intro.micronaut.configuration.primarybeans;
 
 import io.micronaut.context.annotation.Primary;
 import javax.inject.Singleton;

@@ -1,4 +1,4 @@
-package intro.micronaut.qualifier;
+package intro.micronaut.configuration.qualifier;
 
 public interface Engine {
     String getEngine();

@@ -2,8 +2,8 @@ package intro.micronaut.service;
 
 import intro.micronaut.configuration.AddressConfig;
 import intro.micronaut.domain.Car;
-import intro.micronaut.primarybeans.ColorPicker;
-import intro.micronaut.qualifier.Engine;
+import intro.micronaut.configuration.primarybeans.ColorPicker;
+import intro.micronaut.configuration.qualifier.Engine;
 import intro.micronaut.queue.MessageSender;
 import intro.micronaut.repository.CarRepository;
 import io.micronaut.context.annotation.Value;

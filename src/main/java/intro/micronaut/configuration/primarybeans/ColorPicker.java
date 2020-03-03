@@ -1,4 +1,4 @@
-package intro.micronaut.primarybeans;
+package intro.micronaut.configuration.primarybeans;
 
 public interface ColorPicker {
     String color();
