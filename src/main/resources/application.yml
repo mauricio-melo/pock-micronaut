@@ -21,12 +21,21 @@ jpa:
     properties:
       hibernate:
         hbm2ddl:
-          auto: update
+          auto: none
         show_sql: true
-
 
 rabbitmq:
   host: localhost
   port: 5672
   username: teste
   password: teste
+
+endpoints:
+  flyway:
+    enabled: true
+    sensitive: false
+
+flyway:
+  datasources:
+    default:
+      locations: classpath:databasemigrations
