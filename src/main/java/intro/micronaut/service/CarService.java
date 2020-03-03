@@ -61,6 +61,6 @@ public class CarService {
     }
 
     public void processingCar(final Car car) {
-        carRepository.update(car.getId(), Boolean.TRUE);
+        carRepository.updateProcessedQueue(car.getId(), Boolean.TRUE);
     }
 }

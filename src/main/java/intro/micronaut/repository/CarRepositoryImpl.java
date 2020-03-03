@@ -49,7 +49,7 @@ public class CarRepositoryImpl implements CarRepository {
 
     @Override
     @Transactional
-    public void update(@NotNull Long id, @NotBlank Boolean processedQueue) {
+    public void updateProcessedQueue(@NotNull Long id, @NotBlank Boolean processedQueue) {
         entityManager.createQuery("UPDATE Car c SET processedQueue = :processedQueue where id = :id")
                 .setParameter("processedQueue", processedQueue)
                 .setParameter("id", id)

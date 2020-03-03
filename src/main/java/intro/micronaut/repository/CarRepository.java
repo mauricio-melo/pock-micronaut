@@ -17,5 +17,5 @@ public interface CarRepository {
 
     List<Car> findAll();
 
-    void update(@NotNull Long id, @NotBlank Boolean processedQueue);
+    void updateProcessedQueue(@NotNull Long id, @NotBlank Boolean processedQueue);
 }
