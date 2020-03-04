@@ -7,7 +7,7 @@ import io.micronaut.configuration.rabbitmq.annotation.RabbitListener;
 
 import static intro.micronaut.constant.Constants.CAR_SAVED_QUEUE;
 
-@RabbitListener
+//@RabbitListener
 public class MessageListener {
 
     private final CarService carService;
@@ -16,7 +16,7 @@ public class MessageListener {
         this.carService = carService;
     }
 
-    @Queue(CAR_SAVED_QUEUE)
+//    @Queue(CAR_SAVED_QUEUE)
     public void receive(final Car car) {
         System.out.println("Car received " + car.toString());
         carService.processingCar(car);
