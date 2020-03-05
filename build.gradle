@@ -43,9 +43,6 @@ dependencies {
 
     compile 'io.micronaut.configuration:micronaut-rabbitmq'
     compile 'io.micronaut.configuration:micronaut-flyway'
-    compile group: 'javax.xml', name: 'webservices-api', version: '2.1-b16'
-
-
 }
 
 test.classpath += configurations.developmentOnly
