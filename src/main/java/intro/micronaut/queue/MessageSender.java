@@ -7,9 +7,9 @@ import io.micronaut.context.annotation.Requires;
 
 import static intro.micronaut.constant.Constants.CAR_SAVED_QUEUE;
 
-//@RabbitClient
+@RabbitClient
 public interface MessageSender {
 
-//    @Binding(CAR_SAVED_QUEUE)
+    @Binding(CAR_SAVED_QUEUE)
     void send(final Car data);
 }

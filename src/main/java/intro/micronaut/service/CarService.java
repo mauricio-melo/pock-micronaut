@@ -4,6 +4,7 @@ import intro.micronaut.configuration.AddressConfig;
 import intro.micronaut.domain.Car;
 import intro.micronaut.configuration.primarybeans.ColorPicker;
 import intro.micronaut.configuration.qualifier.Engine;
+import intro.micronaut.integration.CarClient;
 import intro.micronaut.queue.MessageSender;
 import intro.micronaut.repository.CarRepository;
 import io.micronaut.context.annotation.Value;
@@ -28,13 +29,17 @@ public class CarService {
 
     private final MessageSender messageSender;
 
+    private final CarClient carClient;
+
+
     public CarService(@Named("v8") Engine engine, AddressConfig addressConfig,
-                      ColorPicker colorPicker, CarRepository carRepository, MessageSender messageSender) {
+                      ColorPicker colorPicker, CarRepository carRepository, MessageSender messageSender, CarClient carClient) {
         this.engine = engine;
         this.addressConfig = addressConfig;
         this.colorPicker = colorPicker;
         this.carRepository = carRepository;
         this.messageSender = messageSender;
+        this.carClient = carClient;
     }
 
     public Car save(final String name) {
@@ -52,7 +57,8 @@ public class CarService {
         return carSaved;
     }
 
-    public Car findById(final Long id) { ;
+    public Car findById(final Long id) {
+        carClient.getPlanets(3L);
         return carRepository.findById(id).orElse(null);
     }
 

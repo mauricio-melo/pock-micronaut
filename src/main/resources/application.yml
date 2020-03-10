@@ -39,3 +39,9 @@ flyway:
   datasources:
     default:
       locations: classpath:databasemigrations
+
+
+integration:
+  client:
+    base-url: https://swapi.co/api
+    user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.99 Safari/537.3
