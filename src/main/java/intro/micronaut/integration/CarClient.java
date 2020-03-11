@@ -6,7 +6,7 @@ import io.micronaut.http.annotation.Get;
 import io.micronaut.http.annotation.Header;
 import io.micronaut.http.client.annotation.Client;
 
-@Header(name="user-agent", value="${integration.client.user-agent}")
+//@Header(name="user-agent", value="${integration.client.user-agent}")
 @Client("${integration.client.base-url}")
 public interface CarClient {
 
